@@ -93,6 +93,10 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .mesh-bg {
+      animation: none;
+    }
+
     .reveal {
       opacity: 1;
       transform: none;

@@ -21,15 +21,13 @@ export default function BeforeAfterSlider() {
   const isDragging = useRef(false);
   const sectionRef = useReveal();
 
-  const clamp = (val: number) => Math.min(Math.max(val, 5), 95);
-
-  const getPos = (clientX: number) => {
-    if (!containerRef.current) return 50;
-    const rect = containerRef.current.getBoundingClientRect();
-    return clamp(((clientX - rect.left) / rect.width) * 100);
-  };
-
   useEffect(() => {
+    const getPos = (clientX: number) => {
+      if (!containerRef.current) return 50;
+      const rect = containerRef.current.getBoundingClientRect();
+      return Math.min(Math.max(((clientX - rect.left) / rect.width) * 100, 5), 95);
+    };
+
     const onMouseMove = (e: MouseEvent) => {
       if (isDragging.current) setSliderPos(getPos(e.clientX));
     };
@@ -43,7 +41,10 @@ export default function BeforeAfterSlider() {
   }, []);
 
   const onTouchMove = (e: React.TouchEvent) => {
-    setSliderPos(getPos(e.touches[0].clientX));
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const pos = Math.min(Math.max(((e.touches[0].clientX - rect.left) / rect.width) * 100, 5), 95);
+    setSliderPos(pos);
   };
 
   return (

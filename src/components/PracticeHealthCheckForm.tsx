@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 import { X, Loader2, CheckCircle, ChevronLeft } from 'lucide-react';
 
 interface PracticeHealthCheckFormProps {
@@ -29,6 +29,7 @@ export default function PracticeHealthCheckForm({ isOpen, onClose }: PracticeHea
   const [contact, setContact] = useState(EMPTY_CONTACT);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const autoCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const reset = () => {
     setStep(1);
@@ -36,6 +37,11 @@ export default function PracticeHealthCheckForm({ isOpen, onClose }: PracticeHea
     setPainPoint('');
     setContact(EMPTY_CONTACT);
     setIsSuccess(false);
+    setIsSubmitting(false);
+    if (autoCloseTimer.current) {
+      clearTimeout(autoCloseTimer.current);
+      autoCloseTimer.current = null;
+    }
   };
 
   const handleClose = () => { reset(); onClose(); };
@@ -46,24 +52,24 @@ export default function PracticeHealthCheckForm({ isOpen, onClose }: PracticeHea
     await new Promise((r) => setTimeout(r, 1000));
     setIsSubmitting(false);
     setIsSuccess(true);
-    setTimeout(() => { handleClose(); }, 2500);
+    autoCloseTimer.current = setTimeout(() => { handleClose(); }, 2500);
   };
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fade-in">
-      <div className="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full animate-scale-in">
+      <div role="dialog" aria-modal="true" aria-labelledby="phcf-title" className="bg-gray-900 border border-gray-800 rounded-2xl max-w-lg w-full animate-scale-in">
 
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-800">
           <div>
-            <h2 className="text-xl font-bold text-white">Practice Health Check</h2>
+            <h2 id="phcf-title" className="text-xl font-bold text-white">Practice Health Check</h2>
             {!isSuccess && (
               <p className="text-gray-400 text-sm mt-0.5">Step {step} of 3</p>
             )}
           </div>
-          <button onClick={handleClose} className="text-gray-400 hover:text-white transition-colors">
+          <button onClick={handleClose} aria-label="Close" className="text-gray-400 hover:text-white transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>

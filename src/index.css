@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Slot-machine word roller — pure CSS, GPU-composited */
+@keyframes slotScroll {
+  0%,    8.33% { transform: translateY(0); }
+  10%,  18.33% { transform: translateY(-9.091%); }
+  20%,  28.33% { transform: translateY(-18.182%); }
+  30%,  38.33% { transform: translateY(-27.273%); }
+  40%,  48.33% { transform: translateY(-36.364%); }
+  50%,  58.33% { transform: translateY(-45.455%); }
+  60%,  68.33% { transform: translateY(-54.545%); }
+  70%,  78.33% { transform: translateY(-63.636%); }
+  80%,  88.33% { transform: translateY(-72.727%); }
+  90%,  98.33% { transform: translateY(-81.818%); }
+  100%         { transform: translateY(-90.909%); }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -68,6 +83,14 @@
     animation: scaleIn 0.3s ease-out forwards;
   }
 
+  /* Slot-machine word roller */
+  .slot-strip {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+    animation: slotScroll 30s ease-in-out infinite;
+  }
+
   /* Mesh gradient background */
   .mesh-bg {
     background:
@@ -94,6 +117,10 @@
 
   @media (prefers-reduced-motion: reduce) {
     .mesh-bg {
+      animation: none;
+    }
+
+    .slot-strip {
       animation: none;
     }
 

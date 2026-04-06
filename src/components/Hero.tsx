@@ -1,47 +1,36 @@
-import { useState, useEffect, useCallback } from 'react';
-
-const WORDS = ['manual booking', 'no-show follow-ups', 'scattered records', 'billing admin'];
+const WORDS = [
+  'manual booking',
+  'no-show follow-ups',
+  'scattered records',
+  'billing admin',
+  'paper intake forms',
+  'appointment reminders',
+  'staff scheduling',
+  'insurance claims',
+  'patient waitlists',
+  'compliance paperwork',
+];
 
 interface HeroProps {
   onOpenForm: () => void;
 }
 
 export default function Hero({ onOpenForm }: HeroProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFlipping, setIsFlipping] = useState(false);
-
-  const nextWord = useCallback(() => {
-    setIsFlipping(true);
-    setTimeout(() => {
-      setCurrentIndex((i) => (i + 1) % WORDS.length);
-      setIsFlipping(false);
-    }, 500);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(nextWord, 3000);
-    return () => clearInterval(interval);
-  }, [nextWord]);
-
-  const nextIndex = (currentIndex + 1) % WORDS.length;
-
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
           Your clinic is still losing hours to{' '}
-          <span className="inline-block overflow-hidden h-[1.15em] align-bottom relative">
-            <span
-              className={`inline-flex flex-col transition-transform duration-500 ease-in-out ${
-                isFlipping ? '-translate-y-1/2' : 'translate-y-0'
-              }`}
-            >
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                {WORDS[currentIndex]}
-              </span>
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                {WORDS[nextIndex]}
-              </span>
+          <span className="inline-block overflow-hidden h-[1.15em] align-bottom">
+            <span className="slot-strip">
+              {[...WORDS, WORDS[0]].map((word, i) => (
+                <span
+                  key={i}
+                  className="block h-[1.15em] leading-[1.15em] bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
+                >
+                  {word}
+                </span>
+              ))}
             </span>
           </span>
         </h1>

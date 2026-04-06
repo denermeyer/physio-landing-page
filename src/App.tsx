@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Hero from './components/Hero';
 import WhoItsFor from './components/WhoItsFor';
+import BeforeAfterSlider from './components/BeforeAfterSlider';
 import Process from './components/Process';
 import AuditOffer from './components/AuditOffer';
 import WhatHappensNext from './components/WhatHappensNext';
@@ -17,6 +18,7 @@ function App() {
       <StickyHeader onOpenForm={() => setIsFormOpen(true)} />
       <Hero onOpenForm={() => setIsFormOpen(true)} />
       <WhoItsFor />
+      <BeforeAfterSlider />
       <Process />
       <AuditOffer onOpenForm={() => setIsFormOpen(true)} />
       <WhatHappensNext />

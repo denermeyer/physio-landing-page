@@ -45,7 +45,7 @@ export default function WhatHappensNext() {
 
             return (
               <div key={index} className="relative">
-                <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-blue-500/50 transition-colors">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 hover:border-blue-500/50 transition-colors">
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
                       <div className="w-14 h-14 bg-blue-500/20 rounded-lg flex items-center justify-center">
@@ -71,7 +71,7 @@ export default function WhatHappensNext() {
                 </div>
 
                 {!isLast && (
-                  <div className="w-0.5 h-6 bg-gray-800 ml-[27px] my-1" />
+                  <div className="w-0.5 h-6 bg-white/10 ml-[27px] my-1" />
                 )}
               </div>
             );

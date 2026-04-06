@@ -26,7 +26,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
   return (
     <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-12 md:p-16">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-12 md:p-16">
           <div className="text-center mb-12">
             <div className="inline-block bg-blue-500/20 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Free, No Obligation
@@ -45,7 +45,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
               return (
                 <div
                   key={index}
-                  className="bg-gray-900/50 border border-gray-700 rounded-lg p-6 text-center"
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 text-center"
                 >
                   <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-6 h-6 text-blue-400" />
@@ -61,7 +61,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
             })}
           </div>
 
-          <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-6 mb-8">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 mb-8">
             <p className="text-gray-300 text-center leading-relaxed">
               <span className="font-semibold text-white">The audit has standalone value.</span> You'll receive actionable insights whether or not you decide to work with us. No sales pitch, no strings attached.
             </p>

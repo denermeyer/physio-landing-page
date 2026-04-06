@@ -28,7 +28,7 @@ export default function WhoItsFor() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-blue-500/50 transition-colors">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 hover:border-blue-500/50 transition-colors">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
                 <Check className="w-6 h-6 text-blue-400" />
@@ -45,7 +45,7 @@ export default function WhoItsFor() {
             </ul>
           </div>
 
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-red-500/50 transition-colors">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 hover:border-red-500/50 transition-colors">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
                 <X className="w-6 h-6 text-red-400" />

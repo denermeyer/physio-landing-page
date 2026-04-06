@@ -40,7 +40,7 @@ export default function Process() {
             return (
               <div
                 key={index}
-                className="bg-gray-900 border border-gray-800 rounded-xl p-8 hover:border-blue-500/50 transition-all hover:transform hover:scale-105"
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-8 hover:border-blue-500/50 transition-all hover:transform hover:scale-105"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-14 h-14 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">

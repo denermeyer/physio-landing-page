@@ -31,7 +31,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
             <div className="inline-block bg-blue-500/20 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Free, No Obligation
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Free Practice Automation Audit
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -70,7 +70,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
           <div className="text-center">
             <button
               onClick={onOpenForm}
-              className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-12 py-5 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-12 py-5 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/50"
             >
               Request Your Free Audit
             </button>

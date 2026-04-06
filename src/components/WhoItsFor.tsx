@@ -20,7 +20,7 @@ export default function WhoItsFor() {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
           Who this is for

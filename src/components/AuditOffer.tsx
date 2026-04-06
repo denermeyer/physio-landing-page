@@ -24,7 +24,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-12 md:p-16">
           <div className="text-center mb-12">
@@ -39,7 +39,7 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (

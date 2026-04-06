@@ -1,6 +1,5 @@
 import { useState, FormEvent } from 'react';
 import { X, Loader2, CheckCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 interface AuditRequestFormProps {
   isOpen: boolean;
@@ -25,19 +24,7 @@ export default function AuditRequestForm({ isOpen, onClose }: AuditRequestFormPr
     setError(null);
 
     try {
-      const { error: submitError } = await supabase
-        .from('practice_audit_leads')
-        .insert([
-          {
-            full_name: formData.fullName,
-            email: formData.email,
-            phone: formData.phone || null,
-            clinic_name: formData.clinicName,
-            message: formData.message || null
-          }
-        ]);
-
-      if (submitError) throw submitError;
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       setIsSuccess(true);
       setTimeout(() => {

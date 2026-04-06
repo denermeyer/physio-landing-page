@@ -9,7 +9,7 @@ export default function PatientCalculator() {
 
   const hoursRecoveredPerMonth = Math.round(adminHours * 4 * 0.6);
   const revenueEquivalent = hoursRecoveredPerMonth * sessionFee;
-  const extraPatients = Math.round(hoursRecoveredPerMonth * 0.8);
+  const noShowsPrevented = Math.round(patients * 0.12 * 0.7);
 
   return (
     <section ref={sectionRef} className="py-24 px-6 bg-black/40 reveal">
@@ -93,11 +93,11 @@ export default function PatientCalculator() {
                 <div className="text-gray-300 text-sm">revenue equivalent per month</div>
               </div>
               <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-                <div className="text-4xl font-bold text-white mb-1">+{extraPatients}</div>
-                <div className="text-gray-300 text-sm">additional patients per month</div>
+                <div className="text-4xl font-bold text-white mb-1">{noShowsPrevented}</div>
+                <div className="text-gray-300 text-sm">no-shows prevented per month</div>
               </div>
               <p className="text-xs text-gray-500 text-center">
-                Based on a 60% admin reduction — a conservative estimate for fully automated practices.
+                Based on 12% avg no-show rate reduced by 70% with automated reminders.
               </p>
             </div>
           </div>

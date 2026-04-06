@@ -1,17 +1,65 @@
+import { useState, useEffect } from 'react';
+
+const WORDS = ['no-shows', 'manual booking', 'scattered records', 'billing delays'];
+
 interface HeroProps {
   onOpenForm: () => void;
 }
 
 export default function Hero({ onOpenForm }: HeroProps) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPausing, setIsPausing] = useState(false);
+
+  useEffect(() => {
+    if (isPausing) return;
+
+    const current = WORDS[wordIndex];
+
+    if (!isDeleting) {
+      if (displayed.length < current.length) {
+        const t = setTimeout(
+          () => setDisplayed(current.slice(0, displayed.length + 1)),
+          100
+        );
+        return () => clearTimeout(t);
+      } else {
+        setIsPausing(true);
+        const t = setTimeout(() => {
+          setIsPausing(false);
+          setIsDeleting(true);
+        }, 1800);
+        return () => clearTimeout(t);
+      }
+    } else {
+      if (displayed.length > 0) {
+        const t = setTimeout(
+          () => setDisplayed(current.slice(0, displayed.length - 1)),
+          60
+        );
+        return () => clearTimeout(t);
+      } else {
+        setIsDeleting(false);
+        setWordIndex((i) => (i + 1) % WORDS.length);
+      }
+    }
+  }, [displayed, isDeleting, isPausing, wordIndex]);
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
           Your practice shouldn't run on
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"> manual workarounds</span>
+          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            {' '}{displayed}
+            <span className="animate-pulse">|</span>
+          </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto animate-fade-in-delay-1">
-          Physiotherapy clinic owners waste hours each week on repetitive admin, disconnected booking systems, and scattered patient records. Automation fixes this systematically.
+          Physiotherapy clinic owners waste hours each week on repetitive admin,
+          disconnected booking systems, and scattered patient records. Automation
+          fixes this systematically.
         </p>
         <button
           onClick={onOpenForm}

@@ -6,6 +6,7 @@ import AuditOffer from './components/AuditOffer';
 import WhatHappensNext from './components/WhatHappensNext';
 import FinalCTA from './components/FinalCTA';
 import AuditRequestForm from './components/AuditRequestForm';
+import StickyHeader from './components/StickyHeader';
 
 function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="min-h-screen text-white relative">
       <div className="mesh-bg fixed inset-0 -z-10" />
+      <StickyHeader onOpenForm={() => setIsFormOpen(true)} />
       <Hero onOpenForm={() => setIsFormOpen(true)} />
       <WhoItsFor />
       <Process />

@@ -11,7 +11,8 @@ function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 to-black text-white">
+    <div className="min-h-screen text-white relative">
+      <div className="mesh-bg fixed inset-0 -z-10" />
       <Hero onOpenForm={() => setIsFormOpen(true)} />
       <WhoItsFor />
       <Process />

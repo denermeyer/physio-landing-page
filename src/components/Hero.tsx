@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const WORDS = ['no-shows', 'manual booking', 'scattered records', 'billing delays'];
+const WORDS = ['manual booking', 'no-show follow-ups', 'scattered records', 'billing admin'];
 
 interface HeroProps {
   onOpenForm: () => void;
@@ -53,7 +53,7 @@ export default function Hero({ onOpenForm }: HeroProps) {
     <section className="min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight animate-fade-in">
-          Your practice shouldn't run on
+          Your clinic is still losing hours to
           <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             {' '}{displayed}
             <span className={isPausing ? 'animate-pulse' : ''}>|</span>

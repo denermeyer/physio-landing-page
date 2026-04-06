@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Hero from './components/Hero';
 import WhoItsFor from './components/WhoItsFor';
 import BeforeAfterSlider from './components/BeforeAfterSlider';
+import PatientCalculator from './components/PatientCalculator';
 import Process from './components/Process';
 import AuditOffer from './components/AuditOffer';
 import WhatHappensNext from './components/WhatHappensNext';
@@ -19,6 +20,7 @@ function App() {
       <Hero onOpenForm={() => setIsFormOpen(true)} />
       <WhoItsFor />
       <BeforeAfterSlider />
+      <PatientCalculator />
       <Process />
       <AuditOffer onOpenForm={() => setIsFormOpen(true)} />
       <WhatHappensNext />

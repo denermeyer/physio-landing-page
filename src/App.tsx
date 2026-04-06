@@ -9,7 +9,7 @@ import ImpactSnapshots from './components/ImpactSnapshots';
 import AuditOffer from './components/AuditOffer';
 import WhatHappensNext from './components/WhatHappensNext';
 import FinalCTA from './components/FinalCTA';
-import AuditRequestForm from './components/AuditRequestForm';
+import PracticeHealthCheckForm from './components/PracticeHealthCheckForm';
 import StickyHeader from './components/StickyHeader';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         </div>
       </footer>
 
-      <AuditRequestForm
+      <PracticeHealthCheckForm
         isOpen={isFormOpen}
         onClose={() => setIsFormOpen(false)}
       />

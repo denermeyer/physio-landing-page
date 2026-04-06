@@ -1,4 +1,5 @@
 import { FileText, Target, Lightbulb } from 'lucide-react';
+import { useReveal } from '../hooks/useReveal';
 
 interface AuditOfferProps {
   onOpenForm: () => void;
@@ -23,8 +24,10 @@ export default function AuditOffer({ onOpenForm }: AuditOfferProps) {
     }
   ];
 
+  const sectionRef = useReveal();
+
   return (
-    <section className="py-32 px-6">
+    <section ref={sectionRef} className="py-32 px-6 reveal">
       <div className="max-w-5xl mx-auto">
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-12 md:p-16">
           <div className="text-center mb-12">

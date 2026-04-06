@@ -1,6 +1,8 @@
 import { Check, X } from 'lucide-react';
+import { useReveal } from '../hooks/useReveal';
 
 export default function WhoItsFor() {
+  const sectionRef = useReveal();
   const forItems = [
     'Clinic owners spending 10+ hours weekly on admin tasks',
     'Practices using 3+ disconnected software tools',
@@ -20,7 +22,7 @@ export default function WhoItsFor() {
   ];
 
   return (
-    <section className="py-28 px-6">
+    <section ref={sectionRef} className="py-28 px-6 reveal">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
           Who this is for

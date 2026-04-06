@@ -1,10 +1,13 @@
+import { useReveal } from '../hooks/useReveal';
+
 interface FinalCTAProps {
   onOpenForm: () => void;
 }
 
 export default function FinalCTA({ onOpenForm }: FinalCTAProps) {
+  const sectionRef = useReveal();
   return (
-    <section className="py-32 px-6">
+    <section ref={sectionRef} className="py-32 px-6 reveal">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">
           Ready to see{' '}

@@ -1,6 +1,8 @@
 import { Calendar, MessageCircle, ClipboardList, UserCheck } from 'lucide-react';
+import { useReveal } from '../hooks/useReveal';
 
 export default function WhatHappensNext() {
+  const sectionRef = useReveal();
   const steps = [
     {
       icon: Calendar,
@@ -29,7 +31,7 @@ export default function WhatHappensNext() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-black/40">
+    <section ref={sectionRef} className="py-24 px-6 bg-black/40 reveal">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-6">
           What Happens Next

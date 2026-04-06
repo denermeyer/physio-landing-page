@@ -40,8 +40,11 @@ export default function Hero({ onOpenForm }: HeroProps) {
         );
         return () => clearTimeout(t);
       } else {
-        setIsDeleting(false);
-        setWordIndex((i) => (i + 1) % WORDS.length);
+        const t = setTimeout(() => {
+          setIsDeleting(false);
+          setWordIndex((i) => (i + 1) % WORDS.length);
+        }, 100);
+        return () => clearTimeout(t);
       }
     }
   }, [displayed, isDeleting, isPausing, wordIndex]);
@@ -53,7 +56,7 @@ export default function Hero({ onOpenForm }: HeroProps) {
           Your practice shouldn't run on
           <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             {' '}{displayed}
-            <span className="animate-pulse">|</span>
+            <span className={isPausing ? 'animate-pulse' : ''}>|</span>
           </span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto animate-fade-in-delay-1">

@@ -4,6 +4,8 @@ import WhoItsFor from './components/WhoItsFor';
 import BeforeAfterSlider from './components/BeforeAfterSlider';
 import PatientCalculator from './components/PatientCalculator';
 import Process from './components/Process';
+import SpecialtyCloud from './components/SpecialtyCloud';
+import ImpactSnapshots from './components/ImpactSnapshots';
 import AuditOffer from './components/AuditOffer';
 import WhatHappensNext from './components/WhatHappensNext';
 import FinalCTA from './components/FinalCTA';
@@ -22,6 +24,8 @@ function App() {
       <BeforeAfterSlider />
       <PatientCalculator />
       <Process />
+      <SpecialtyCloud />
+      <ImpactSnapshots />
       <AuditOffer onOpenForm={() => setIsFormOpen(true)} />
       <WhatHappensNext />
       <FinalCTA onOpenForm={() => setIsFormOpen(true)} />

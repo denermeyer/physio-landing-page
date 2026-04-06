@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { X, Loader2, CheckCircle } from 'lucide-react';
 
 interface ExitIntentModalProps {
@@ -12,13 +12,19 @@ export default function ExitIntentModal({ isOpen, onClose, onOpenMainForm }: Exi
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDone, setIsDone] = useState(false);
 
+  const autoCloseRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    return () => clearTimeout(autoCloseRef.current);
+  }, []);
+
   const handleSubmit = async () => {
     if (!email) return;
     setIsSubmitting(true);
     await new Promise((r) => setTimeout(r, 800));
     setIsSubmitting(false);
     setIsDone(true);
-    setTimeout(() => { onClose(); setIsDone(false); setEmail(''); }, 2000);
+    autoCloseRef.current = setTimeout(() => { onClose(); setIsDone(false); setEmail(''); }, 2000);
   };
 
   if (!isOpen) return null;

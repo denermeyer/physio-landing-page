@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import Hero from './components/Hero';
 import WhoItsFor from './components/WhoItsFor';
-import BeforeAfterSlider from './components/BeforeAfterSlider';
 import PatientCalculator from './components/PatientCalculator';
 import Process from './components/Process';
 import SpecialtyCloud from './components/SpecialtyCloud';
@@ -28,8 +27,7 @@ function App() {
       <StickyHeader onOpenForm={openForm} />
       <Hero onOpenForm={openForm} />
       <WhoItsFor />
-      <BeforeAfterSlider />
-      <PatientCalculator />
+<PatientCalculator />
       <Process />
       <SpecialtyCloud />
       <ImpactSnapshots />
